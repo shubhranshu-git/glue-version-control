@@ -1,20 +1,34 @@
 {
-  "name": "git_version_control_job",
-  "description": "Sample job using Git version control",
-  "role": "AWSGlueServiceRole",
-  "command": {
-    "name": "glueetl",
-    "scriptLocation": "s3://aws-glue-assets-139097848366-us-east-1/scripts/glue-version-control.py",
-    "pythonVersion": "3"
-  },
-  "sourceControl": {
-    "provider": "GITHUB",
-    "repository": "glue-version-control",
-    "branch": "main",
-    "folder": "src"
-  },
-  "glueVersion": "3.0",
-  "numberOfWorkers": 2,
-  "workerType": "G.1X"
+    "Name": "glue-version-control",
+    "Role": "arn:aws:iam::139097848366:role/MyTestRole",
+    "ExecutionProperty": {
+        "MaxConcurrentRuns": 1
+    },
+    "Command": {
+        "Name": "glueetl",
+        "ScriptLocation": "src/glue-version-control.py",
+        "PythonVersion": "3"
+    },
+    "DefaultArguments": {
+        "--enable-metrics": "true",
+        "--enable-spark-ui": "true",
+        "--spark-event-logs-path": "s3://aws-glue-assets-139097848366-us-east-1/sparkHistoryLogs/",
+        "--enable-job-insights": "true",
+        "--enable-observability-metrics": "true",
+        "--enable-glue-datacatalog": "true",
+        "--job-bookmark-option": "job-bookmark-disable",
+        "--job-language": "python",
+        "--TempDir": "s3://aws-glue-assets-139097848366-us-east-1/temporary/"
+    },
+    "MaxRetries": 0,
+    "Timeout": 480,
+    "WorkerType": "G.1X",
+    "NumberOfWorkers": 10,
+    "GlueVersion": "5.0",
+    "SourceControlDetails": {
+        "Provider": "GITHUB",
+        "Repository": "glue-version-control",
+        "Branch": "main",
+        "Folder": "src"
+    }
 }
-
