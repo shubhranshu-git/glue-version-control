@@ -4,7 +4,7 @@
   "role": "AWSGlueServiceRole",
   "command": {
     "name": "glueetl",
-    "scriptLocation": "s3://aws-glue-assets-139097848366-us-east-1/scripts/",
+    "scriptLocation": "s3://aws-glue-assets-139097848366-us-east-1/scripts/glue-version-control.py",
     "pythonVersion": "3"
   },
   "sourceControl": {
