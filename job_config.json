@@ -1,1 +1,20 @@
+{
+  "name": "git_version_control_job",
+  "description": "Sample job using Git version control",
+  "role": "AWSGlueServiceRole",
+  "command": {
+    "name": "glueetl",
+    "scriptLocation": "src/git_version_control_job.py",
+    "pythonVersion": "3"
+  },
+  "sourceControl": {
+    "provider": "GITHUB",
+    "repository": "glue-version-control",
+    "branch": "main",
+    "folder": "src"
+  },
+  "glueVersion": "3.0",
+  "numberOfWorkers": 2,
+  "workerType": "G.1X"
+}
 
